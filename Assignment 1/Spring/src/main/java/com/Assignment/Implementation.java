@@ -27,7 +27,7 @@ public class Implementation {
 
 			ObjectMapper mapper = new ObjectMapper();
 			InputStream inputStream = new FileInputStream(
-					new File("D:\\eclipse-workspace\\Assignment1\\src\\main\\resources\\student.json"));
+					new File("D:\\GE_Project\\Assignments\\Assignment 1\\Spring\\src\\main\\resources\\student.json"));
 
 			TypeReference<List<Student>> typeReference = new TypeReference<List<Student>>() {
 			};

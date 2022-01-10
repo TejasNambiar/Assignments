@@ -46,7 +46,7 @@
     },
     {
         "rollNumber": "17241A04J3",
-        "name": "Sample5",
+        "name": "Sample6",
         "mark1": 90,
         "mark2": 15,
         "mark3": 66,
@@ -55,10 +55,19 @@
     },
     {
         "rollNumber": "17241A04J4",
-        "name": "Sample6",
+        "name": "Sample7",
         "mark1": 90,
         "mark2": 15,
         "mark3": 66,
+        "total": null,
+        "grade": ""
+    },
+    {
+        "rollNumber": "17241A04O4",
+        "name": "Sample8",
+        "mark1": 80,
+        "mark2": 55,
+        "mark3": 16,
         "total": null,
         "grade": ""
     }
