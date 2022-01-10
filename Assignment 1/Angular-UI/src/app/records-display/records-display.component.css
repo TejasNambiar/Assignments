@@ -1,0 +1,23 @@
+mat-card{
+    width: 95%;
+    margin-left: 2%;
+    margin-top: 10px;
+    font-weight: 150;
+    background-color: #FFEBE5;
+}
+mat-card-header{
+  margin-left: 37%;
+  padding-top: 3%;
+}
+mat-card-header mat-card-title{
+  font-weight: 150;
+  font-size: 40px;
+}
+mat-card-content{
+  margin-top: 3%;
+}
+table{
+  padding: 10%;
+  font-size: 15px;
+  font-weight: 150;
+}

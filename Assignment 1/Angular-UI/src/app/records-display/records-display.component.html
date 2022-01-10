@@ -1,0 +1,35 @@
+<mat-card class="mat-elevation-z9">
+    <mat-card-header>
+        <mat-card-title >Student Records</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <table class="table">
+            <tr>
+                <th scope="col">Roll Number</th>
+                <th scope="col">Name</th>
+                <th scope="col">Mark 1</th>
+                <th scope="col">Mark 2</th>
+                <th scope="col">Mark 3</th>
+                <th scope="col">Total</th>
+                <th scope="col">Grade</th>
+            </tr>
+            <tbody>
+                <tr *ngFor = "let record of records">
+                    <td>{{record.rollNumber}}</td>
+                    <td>{{record.name}}</td>
+                    <td>{{record.mark1}}</td>
+                    <td>{{record.mark2}}</td>
+                    <td>{{record.mark3}}</td>
+                    <td>{{record.total}}</td>
+                    <td>{{record.grade}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </mat-card-content>
+</mat-card>
+<!-- <mat-card>
+    <mat-card-content>
+        {{records}} 
+    <br>{{dataSource}}  
+    </mat-card-content>
+</mat-card> -->
