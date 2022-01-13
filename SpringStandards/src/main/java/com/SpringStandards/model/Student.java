@@ -1,13 +1,12 @@
-package com.Assignment.model;
+package com.SpringStandards.model;
 
-// POJO Class - Plain Old Java Object 
 public class Student {
 
 	String rollNumber;
 	String name;
 	String grade;
 	int mark1, mark2, mark3;
-	int Total;
+	int total;
 
 	public Student() {
 	}
@@ -37,7 +36,7 @@ public class Student {
 	}
 
 	public int getTotal() {
-		return Total;
+		return total;
 	}
 
 	public void setRollNumber(String rollNumber) {
@@ -65,7 +64,7 @@ public class Student {
 	}
 
 	public void setTotal(int total) {
-		Total = total;
+		this.total = total;
 	}
 
 }

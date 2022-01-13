@@ -1,0 +1,75 @@
+[
+    {
+        "rollNumber": "17241A04H7",
+        "name": "Sample1",
+        "mark1": 90,
+        "mark2": 90,
+        "mark3": 90,
+        "total": null,
+        "grade": ""
+    },
+    {
+        "rollNumber": "17241A04H6",
+        "name": "Sample2",
+        "mark1": 70,
+        "mark2": 60,
+        "mark3": 76,
+        "total": null,
+        "grade": ""
+    },
+    {
+        "rollNumber": "17241A04H3",
+        "name": "Sample3",
+        "mark1": 50,
+        "mark2": 55,
+        "mark3": 76,
+        "total": null,
+        "grade": ""
+    },
+    {
+        "rollNumber": "17241A04J0",
+        "name": "Sample4",
+        "mark1": 40,
+        "mark2": 45,
+        "mark3": 46,
+        "total": null,
+        "grade": ""
+    },
+    {
+        "rollNumber": "17241A04J1",
+        "name": "Sample5",
+        "mark1": 30,
+        "mark2": 65,
+        "mark3": 76,
+        "total": null,
+        "grade": ""
+    },
+    {
+        "rollNumber": "17241A04J3",
+        "name": "Sample6",
+        "mark1": 90,
+        "mark2": 15,
+        "mark3": 66,
+        "total": null,
+        "grade": ""
+    },
+    {
+        "rollNumber": "17241A04J4",
+        "name": "Sample7",
+        "mark1": 90,
+        "mark2": 15,
+        "mark3": 66,
+        "total": null,
+        "grade": ""
+    },
+    {
+        "rollNumber": "17241A04O4",
+        "name": "Sample8",
+        "mark1": 80,
+        "mark2": 55,
+        "mark3": 16,
+        "total": null,
+        "grade": ""
+    }
+    
+]
