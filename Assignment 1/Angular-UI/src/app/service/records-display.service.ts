@@ -7,11 +7,15 @@ import { HttpClient} from '@angular/common/http';
 })
 export class RecordsDisplayService {
 
-  private url: string = "http://localhost:8000/api/student"
+  private url: string = "http://localhost:8001/api/students"
+  private dbUrl: string = "http://localhost:8001/api/students/postgre"
 
   constructor(private http: HttpClient) {}
 
   getStudentDetails(): Observable<any>{
     return this.http.get<any>(this.url)
+  }
+  getStudentDbDetails(): Observable<any>{
+    return this.http.get<any>(this.dbUrl)
   }
 }

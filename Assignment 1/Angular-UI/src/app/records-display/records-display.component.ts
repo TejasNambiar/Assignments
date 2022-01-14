@@ -8,6 +8,7 @@ import { RecordsDisplayService } from '../service/records-display.service';
 })
 export class RecordsDisplayComponent implements OnInit {
 
+  dbRecords: Array<any> = []
   records: Array<any> = []
   dataSource: any = []
 
@@ -18,6 +19,11 @@ export class RecordsDisplayComponent implements OnInit {
                 .subscribe( data => {
                     this.records = data
                     this.dataSource = this.records
+                  }
+                )
+    this.service.getStudentDbDetails()
+                .subscribe( data => {
+                    this.dbRecords = data
                   }
                 )
   }
