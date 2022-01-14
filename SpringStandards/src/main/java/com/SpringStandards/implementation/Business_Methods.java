@@ -11,6 +11,11 @@ import com.SpringStandards.model.StudentJPA;
 import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
 
+/*
+ * Defines the methods to be implemented and 
+ * the possible errors that can be thrown or need to 
+ * be handled in controller layer
+ */
 public interface Business_Methods {
 	List<Student> getDetails() throws FileNotFoundException, IOException, StreamReadException, DatabindException;
 

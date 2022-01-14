@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Streamable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,9 +22,15 @@ import com.fasterxml.jackson.core.exc.StreamReadException;
 import com.fasterxml.jackson.databind.DatabindException;
 
 /*
- * Defining the controller class for 
+ * Access layer of application to 
+ * access business implementation methods
  * 
+ * Only access methods here, no business logic
+ * 
+ * Handles all exception that may occur
+ * in business layer
  */
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("api/students")
 public class controller {
