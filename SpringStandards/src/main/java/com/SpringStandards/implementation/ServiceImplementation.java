@@ -41,7 +41,7 @@ public class ServiceImplementation implements Business_Methods {
 		Logger logger = Logger.getLogger(ServiceImplementation.class.getName());
 
 		try (InputStream stream = new FileInputStream(
-				new File("D:\\GE_Project\\Assignments\\Assignment 1\\Spring\\src\\main\\resources\\student.json"))) {
+				new File("D:\\GE_Project\\Assignments\\SpringStandards\\src\\main\\resources\\student.json"))) {
 
 			ObjectMapper mapper = new ObjectMapper();
 			TypeReference<List<Student>> typeReference = new TypeReference<List<Student>>() {
