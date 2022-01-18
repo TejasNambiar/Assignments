@@ -1,0 +1,39 @@
+// CONTROLLER CLASS
+
+	//	@Override
+	//	@GetMapping("")
+	//	public ResponseEntity<List<StudentJPA>> dataFromRepo() {
+	//		return new ResponseEntity<List<StudentJPA>>(service.listFromRepository(), HttpStatus.ACCEPTED);
+	//	}
+	//	@Override
+	//	@PostMapping("/addstudentresult")
+	//	public ResponseEntity<StudentExamResults> addStudentDetails(@RequestBody StudentExamResults student) {
+	//		ResponseEntity<StudentExamResults> res = service.addStudentDetail(student);
+	//		if (res == null)
+	//			throw new DataExistException("Data aleady Exist");
+	//		return res;
+	//	}
+
+-------------------------------------------------------------------------------------------------------------------------------- 
+
+// ICONTROLLER INTERFACE
+
+	//	@GetMapping("/postgre")
+	//	public ResponseEntity<List<StudentJPA>> dataFromRepo();
+	//	@PostMapping("/addstudentresult")
+	//	public ResponseEntity<StudentExamResults> addStudentDetails(@Valid @RequestBody StudentExamResults student);
+	
+-------------------------------------------------------------------------------------------------------------------------------- 
+	
+// @CONTROLLERADVICE CLASS
+
+	/**
+	 * Handle data not found exception.
+	 *
+	 * @param dx the dx
+	 * @return the response entity
+	 */
+	@ExceptionHandler(value = DataNotFoundException.class)
+	public ResponseEntity<Object> handleDataNotFoundException(DataNotFoundException dx) {
+		return new ResponseEntity<>(dx.getMessage(), HttpStatus.NOT_FOUND);
+	}
