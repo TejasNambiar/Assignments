@@ -46,4 +46,6 @@ public interface IController {
 	@GetMapping("/getstudentbyrollnumber/{rollnumber}")
 	public ResponseEntity<StudentExamResults> getStudentByRollNumber(@PathVariable String rollnumber)
 			throws StudentExceptions;
+
+	ResponseEntity<List<StudentDetails>> updateStudentDetails() throws StudentExceptions;
 }

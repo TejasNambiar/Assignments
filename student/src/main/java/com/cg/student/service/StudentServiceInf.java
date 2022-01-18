@@ -43,6 +43,8 @@ public interface StudentServiceInf {
 	 * @return the student details
 	 */
 	List<StudentDetails> getStudentDetails();
+
+	List<StudentDetails> updateStudentDetails();
 }
 
 // TODO: custom Exceptions

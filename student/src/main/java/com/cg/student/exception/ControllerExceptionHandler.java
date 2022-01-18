@@ -48,4 +48,12 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
 
 		return new ResponseEntity<>(dx.getMessage(), HttpStatus.NOT_FOUND);
 	}
+	
+	@ExceptionHandler(value = NullPointerException.class)
+	public ResponseEntity<Object> handleStudentExceptions() {
+
+		String msg = "NO resultset returned containing Student Data. Check dataset connection";
+
+		return new ResponseEntity<>(msg, HttpStatus.NOT_FOUND);
+	}
 }

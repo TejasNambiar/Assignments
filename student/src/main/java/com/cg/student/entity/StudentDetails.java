@@ -2,8 +2,12 @@ package com.cg.student.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.UniqueElements;
@@ -41,6 +45,30 @@ public class StudentDetails implements Serializable {
 
 	/** The phone number. */
 	private long phoneNumber;
+	
+	
+	/** The results. */
+	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+	@JoinColumn(name = "rollNumber", referencedColumnName = "rollNumber")
+	private StudentExamResults results;
+
+	/**
+	 * Gets the results.
+	 *
+	 * @return the results
+	 */
+	public StudentExamResults getResults() {
+		return results;
+	}
+
+	/**
+	 * Sets the results.
+	 *
+	 * @param results the new results
+	 */
+	public void setResults(StudentExamResults results) {
+		this.results = results;
+	}
 
 	/**
 	 * Gets the roll number.

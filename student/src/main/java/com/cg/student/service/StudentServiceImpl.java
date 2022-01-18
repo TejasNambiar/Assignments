@@ -22,11 +22,11 @@ public class StudentServiceImpl implements StudentServiceInf {
 
 	/** The repository. */
 	@Autowired
-	StudentExamRepository repository;
+	StudentExamRepository resultRepository;
 
 	/** The repository 3. */
 	@Autowired
-	StudentDetailsRepository repository3;
+	StudentDetailsRepository detailsRepository;
 
 	/** The logger. */
 	Logger logger;
@@ -42,7 +42,7 @@ public class StudentServiceImpl implements StudentServiceInf {
 
 		// TODO: null_check for roll_number
 
-		StudentExamResults res = repository.findByRollNumber(rollNumber);
+		StudentExamResults res = resultRepository.findByRollNumber(rollNumber);
 
 		// checks if roll_number exists, else return null
 		if (res != null)
@@ -58,7 +58,7 @@ public class StudentServiceImpl implements StudentServiceInf {
 	 */
 	@Override
 	public List<StudentExamResults> getStudentResults() {
-		List<StudentExamResults> list = repository.findAll();
+		List<StudentExamResults> list = resultRepository.findAll();
 
 		list.forEach(result -> {
 
@@ -89,7 +89,7 @@ public class StudentServiceImpl implements StudentServiceInf {
 	 */
 	@Override
 	public List<StudentDetails> getStudentDetails() {
-		return repository3.findAll();
+		return detailsRepository.findAll();
 	}
 
 	/**
@@ -109,6 +109,21 @@ public class StudentServiceImpl implements StudentServiceInf {
 //		student.updateTotal();
 //		student.updateGrade();
 
-		return new ResponseEntity<StudentExamResults>(repository.save(student), HttpStatus.CREATED);
+		return new ResponseEntity<StudentExamResults>(resultRepository.save(student), HttpStatus.CREATED);
+	}
+
+	@Override
+	public List<StudentDetails> updateStudentDetails(){
+		List<StudentDetails> details = detailsRepository.findAll();
+		
+		details.stream()
+			   .forEach(student ->{
+				   StudentExamResults result = resultRepository.findByRollNumber(student.getRollNumber());
+				   if(result != null)
+					   student.setResults(result);
+				   detailsRepository.save(student);
+			   });
+		
+		return null;
 	}
 }

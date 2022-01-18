@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -88,6 +89,18 @@ public class Controller implements IController {
 		throw new StudentExceptions("Found no Student with rollnumber:: "+ rollnumber);
 		
 
+	}
+	
+	@Override
+	@PutMapping("/updatestudentdetails")
+	public ResponseEntity<List<StudentDetails>> updateStudentDetails() throws StudentExceptions, NullPointerException {
+		
+		List<StudentDetails> details = service.getStudentDetails();
+		
+		if(!details.isEmpty())
+			return new ResponseEntity<List<StudentDetails>>(details, HttpStatus.ACCEPTED);
+		
+		throw new StudentExceptions("NO resultset returned containing Student Data. Check dataset connection");
 	}
 
 }
