@@ -32,23 +32,27 @@ public class LoggingaAdvice {
 		String className = joinPoint.getTarget().getClass().toString();
 		Object[] array = joinPoint.getArgs(); 
 		
+
+		logger.info("---------------------------------------------------------------------------------------");
+		
 		/**
 		 * Before method invocation, calling logger 
 		 * to check basic parameters 
 		 */
-		logger.info("\nMethod invoked:: "+className +" : "
+		logger.info("Method invoked:: "+className +" : "
 		   			    +methodName+"()" 
 						+ "\narguments:: "+mapper.writeValueAsString(array));
 		
 		Object object = joinPoint.proceed();
-		
+	
+		logger.info("---------------------------------------------------------------------------------------");
 		/**
 		 * Post method invocation, calling logger 
 		 * to check result returned 
 		 */
-		logger.info("\n"+className +" : "
+		logger.info(className +" : "
    			    +methodName+"()" 
-				+ "\nResponse:: "+mapper.writeValueAsString(array));
+				+ "\nResponse:: "+mapper.writeValueAsString(object)+"\n");
 		
 		return object;
 	}
