@@ -105,10 +105,6 @@ public class StudentServiceImpl implements StudentServiceInf {
 		if (getStudentByRollNumber(student.getRollNumber()) != null)
 			return null;
 
-//		// else proceed
-//		student.updateTotal();
-//		student.updateGrade();
-
 		return new ResponseEntity<StudentExamResults>(resultRepository.save(student), HttpStatus.CREATED);
 	}
 

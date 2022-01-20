@@ -29,8 +29,6 @@ public class StudentDetails implements Serializable {
 	/**
 	 * Instantiates a new student details.
 	 */
-	public StudentDetails() {
-	}
 
 	/** The roll number. */
 	@Id
