@@ -21,8 +21,8 @@ public class StudentApplication {
 //		if (args != null 
 //				&& args.length > 0 
 //				&& StringUtils.isNotBlank(args[0])
-//				&& StringUtils.equalsIgnoreCase(args[0], "local")) {
-//			SpringApplication.run(StudentApplication.class, StudentConstants.ENVIRONMENT);
+//				&& StringUtils.equalsIgnoreCase(args[0], StudentConstants.ENVIRONMENT)) {
+//			SpringApplication.run(StudentApplication.class);
 //		}
 		SpringApplication.run(StudentApplication.class);
 	}
