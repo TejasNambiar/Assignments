@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import org.hibernate.validator.constraints.UniqueElements;
 
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 // TODO: Auto-generated Javadoc
@@ -14,7 +15,6 @@ import lombok.NoArgsConstructor;
  * The Class StudentExamResults.
  */
 @Entity
-@NoArgsConstructor
 @Table(name = "student_exam_results")
 public class StudentExamResults implements Serializable {
 
@@ -40,6 +40,34 @@ public class StudentExamResults implements Serializable {
 
 	/** The grade. */
 	private String grade;
+
+	/**
+	 * Instantiates a new student exam results.
+	 */
+	public StudentExamResults() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	/**
+	 * Instantiates a new student exam results.
+	 *
+	 * @param rollNumber the roll number
+	 * @param mark1 the mark 1
+	 * @param mark2 the mark 2
+	 * @param mark3 the mark 3
+	 * @param total the total
+	 * @param grade the grade
+	 */
+	public StudentExamResults(@UniqueElements String rollNumber, int mark1, int mark2, int mark3, int total,
+			String grade) {
+		super();
+		this.rollNumber = rollNumber;
+		this.mark1 = mark1;
+		this.mark2 = mark2;
+		this.mark3 = mark3;
+		this.total = total;
+		this.grade = grade;
+	}
 
 	/**
 	 * Gets the roll number.
@@ -149,4 +177,16 @@ public class StudentExamResults implements Serializable {
 		this.grade = grade;
 	}
 
+	/**
+	 * To string.
+	 *
+	 * @return the string
+	 */
+	@Override
+	public String toString() {
+		return "StudentExamResults [rollNumber=" + rollNumber + ", mark1=" + mark1 + ", mark2=" + mark2 + ", mark3="
+				+ mark3 + ", total=" + total + ", grade=" + grade + "]";
+	}
+
+	
 }

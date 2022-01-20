@@ -11,4 +11,6 @@ import com.cg.student.entity.StudentDetails;
 @Repository
 public interface StudentDetailsRepository extends JpaRepository<StudentDetails, String> {
 
+	StudentDetails findByRollNumber(String rollNumber);
+
 }

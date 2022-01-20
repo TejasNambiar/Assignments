@@ -19,7 +19,6 @@ import lombok.NoArgsConstructor;
  * The Class StudentDetails.
  */
 @Entity
-@NoArgsConstructor
 @Table(name = "student_details")
 public class StudentDetails implements Serializable {
 
@@ -44,7 +43,33 @@ public class StudentDetails implements Serializable {
 	/** The phone number. */
 	private long phoneNumber;
 	
+		
 	
+	/**
+	 * Instantiates a new student details.
+	 */
+	public StudentDetails() {
+	}
+
+	/**
+	 * Instantiates a new student details.
+	 *
+	 * @param rollNumber the roll number
+	 * @param name the name
+	 * @param address the address
+	 * @param phoneNumber the phone number
+	 * @param results the results
+	 */
+	public StudentDetails(@UniqueElements String rollNumber, String name, String address, long phoneNumber,
+			StudentExamResults results) {
+		super();
+		this.rollNumber = rollNumber;
+		this.name = name;
+		this.address = address;
+		this.phoneNumber = phoneNumber;
+		this.results = results;
+	}
+
 	/** The results. */
 	@OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinColumn(name = "rollNumber", referencedColumnName = "rollNumber")
