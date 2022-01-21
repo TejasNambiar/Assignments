@@ -122,16 +122,23 @@ class StudentApplicationTests {
 		 * Test get student results.
 		 */
 		@Test
-		@DisplayName("Testing GetStudentResults ")
+		@DisplayName("Testing GetStudents:: Business Logic ")
 		void testGetStudentResults() {
 	
 			List<StudentExamResults> list = new ArrayList<StudentExamResults>();
-			list.add(new StudentExamResults("17241a05m0", 12, 80, 90, 60, "D"));
-			list.add(new StudentExamResults("17241a05m1", 91, 40, 70, 67, "D"));
-			list.add(new StudentExamResults("17241a05m2", 90, 80, 70, 80, "B"));
-			list.add(new StudentExamResults("17241a05m3", 70, 75, 75, 73, "C"));
-			list.add(new StudentExamResults("17241a05m4", 89, 34, 23, 48, "F"));
-			list.add(new StudentExamResults("17241a05m5", 23, 65, 23, 37, "F"));
+//			list.add(new StudentExamResults("17241a05m0", 12, 80, 90, 60, "D"));
+//			list.add(new StudentExamResults("17241a05m1", 91, 40, 70, 67, "D"));
+//			list.add(new StudentExamResults("17241a05m2", 90, 80, 70, 80, "B"));
+//			list.add(new StudentExamResults("17241a05m3", 70, 75, 75, 73, "C"));
+//			list.add(new StudentExamResults("17241a05m4", 89, 34, 23, 48, "F"));
+//			list.add(new StudentExamResults("17241a05m5", 23, 65, 23, 37, "F"));
+			
+			list.add(new StudentExamResults("17241a05m0", 12, 80, 90, 0, ""));
+			list.add(new StudentExamResults("17241a05m1", 91, 40, 70, 0, ""));
+			list.add(new StudentExamResults("17241a05m2", 90, 80, 70, 0, ""));
+			list.add(new StudentExamResults("17241a05m3", 70, 75, 75, 0, ""));
+			list.add(new StudentExamResults("17241a05m4", 89, 34, 23, 0, ""));
+			list.add(new StudentExamResults("17241a05m5", 23, 65, 23, 0, ""));
 	
 			when(mockResultRepo.findAll()).thenReturn(list);
 	
@@ -141,6 +148,9 @@ class StudentApplicationTests {
 					() -> assertThat(serviceList).isNotEmpty(),
 					() -> assertEquals(6, list.size(), "to compare the list size"),
 					() -> assertEquals("17241a05m4", list.get(4).getRollNumber(), "Comparing rollnumber at index 4"),
+					() -> assertEquals(48, list.get(4).getTotal(), "Comparing Total at index 4"),
+					() -> assertEquals(73, list.get(3).getTotal(), "Comparing Total at index 3"),
+					() -> assertEquals("D", list.get(0).getGrade(), "Comparing Grade at index 0"),
 					() -> assertEquals("F", list.get(5).getGrade(), "Comparing Grade at index 5")
 					);
 		}
