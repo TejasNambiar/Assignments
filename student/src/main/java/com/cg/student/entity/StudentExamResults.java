@@ -7,8 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import org.hibernate.validator.constraints.UniqueElements;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.Builder;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -16,6 +15,7 @@ import lombok.NoArgsConstructor;
  */
 @Entity
 @Table(name = "student_exam_results")
+@Builder
 public class StudentExamResults implements Serializable {
 
 	/** The Constant serialVersionUID. */
@@ -128,53 +128,64 @@ public class StudentExamResults implements Serializable {
 	 *
 	 * @param rollNumber the new roll number
 	 */
-	public void setRollNumber(String rollNumber) {
+	public StudentExamResults setRollNumber(String rollNumber) {
 		this.rollNumber = rollNumber;
+		return this;
 	}
 
 	/**
 	 * Sets the mark 1.
 	 *
 	 * @param mark1 the new mark 1
+	 * @return 
 	 */
-	public void setMark1(int mark1) {
+	public StudentExamResults setMark1(int mark1) {
 		this.mark1 = mark1;
+		return this;
 	}
 
 	/**
 	 * Sets the mark 2.
 	 *
 	 * @param mark2 the new mark 2
+	 * @return 
 	 */
-	public void setMark2(int mark2) {
+	public StudentExamResults setMark2(int mark2) {
 		this.mark2 = mark2;
+		return this;
 	}
 
 	/**
 	 * Sets the mark 3.
 	 *
 	 * @param mark3 the new mark 3
+	 * @return 
 	 */
-	public void setMark3(int mark3) {
+	public StudentExamResults setMark3(int mark3) {
 		this.mark3 = mark3;
+		return this;
 	}
 
 	/**
 	 * Sets the total.
 	 *
 	 * @param total the new total
+	 * @return 
 	 */
-	public void setTotal(int total) {
+	public StudentExamResults setTotal(int total) {
 		this.total = total;
+		return this;
 	}
 
 	/**
 	 * Sets the grade.
 	 *
 	 * @param grade the new grade
+	 * @return 
 	 */
-	public void setGrade(String grade) {
+	public StudentExamResults setGrade(String grade) {
 		this.grade = grade;
+		return this;
 	}
 
 	/**
