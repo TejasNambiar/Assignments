@@ -1,0 +1,80 @@
+<mat-card class="mat-elevation-z9">
+    <mat-card-header>
+        <mat-card-title >Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form novalidate
+                    (ngSubmit)="save()"
+                    [formGroup]="loginForm">
+
+                <div class="example-container">
+                    <mat-form-field appearance="fill">
+                        <mat-label 
+                            class="col-form-label"
+                            for="userName">User Name
+                        </mat-label>
+                        <input 
+                            matInput 
+                            id="userName"
+                            type="text"
+                            placeholder="User Name (required)" 
+                            size="6"
+                            formControlName="userName" required>
+                         <mat-error
+                            *ngIf="loginForm.get('userName').errors?.required"> 
+                            {{LOGINCONST.USERNAME_NULL}}
+                        </mat-error>
+                        <mat-error
+                            *ngIf="loginForm.get('userName').errors?.minlength">
+                            {{LOGINCONST.USERNAME_INVALID}}
+                        </mat-error>
+                        <mat-error
+                            *ngIf="loginForm.get('userName').errors?.email">
+                            Email invalid
+                        </mat-error>                       
+                    </mat-form-field>
+                </div>
+                <div class="example-container">
+                    <mat-form-field appearance="fill">
+                        <mat-label
+                            class="col-form-label"
+                            for="passwordId">Password
+                        </mat-label>
+                        <input 
+                            matInput 
+                            id="passwordId"
+                            type="password"
+                            size="6"
+                            placeholder="password (required)"
+                            formControlName="password" required>
+                        <mat-error
+                            *ngIf="loginForm.get('password').errors?.required"> 
+                            {{LOGINCONST.PASSWORD_NULL}}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+            </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button 
+                id="button"
+                class="btn btn-primary mr-3"
+                type="submit"
+                name="submit"
+                style="width:80px"
+                [title]="loginForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                [disabled]="loginForm.invalid"
+                (click) = "validateLogin()"
+                >
+              Submit
+         </button>
+    </mat-card-actions>
+</mat-card>
+<mat-card class="mat-elevation-z9">
+    <mat-card-header>
+        <mat-card-title >Login</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{loginForm.value | json}}</p>
+    </mat-card-content>
+</mat-card>

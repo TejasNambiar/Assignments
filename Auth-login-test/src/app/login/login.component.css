@@ -1,0 +1,39 @@
+
+mat-card{
+    width: 60%;
+    height:50%;    
+    display: block;
+    margin-left:auto;
+    margin-right:auto;  
+    margin-top: 10px;
+    font-weight: 150;
+    background-image: linear-gradient(to right, lightblue , #5D6C89);
+    color: #4E1A3D;
+}
+mat-card-header{
+  margin-left: 37%;
+  padding-top: 3%;
+}
+mat-card-header mat-card-title{
+  font-weight: 150;
+  font-size: 40px;
+  padding-bottom: 20%;
+}
+
+mat-card-content::content{
+    margin-left: 33%;
+    justify-content: center;
+}
+
+mat-card-actions #button{
+    margin-left: 37%;    
+    color: #4E1A3D;
+}
+#form-field{
+    padding-top: 20px;
+}
+
+mat-error{   
+    color: #4E1A3D;
+}
+

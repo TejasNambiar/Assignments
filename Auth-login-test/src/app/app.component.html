@@ -1,0 +1,21 @@
+<mat-toolbar>
+  <button mat-icon-button >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <button 
+    id="login" 
+    mat-icon-button 
+    routerLink="/login" 
+    *ngIf="!valid">
+      <mat-icon>login</mat-icon>
+      login
+  </button>
+  <button mat-button [matMenuTriggerFor]="menu" *ngIf="valid">Menu</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>{{this.userAuthenticated?.fname +" "+ this.userAuthenticated?.lname}}</button>
+    <button mat-menu-item (click)="logout()">logout</button>
+  </mat-menu>
+</mat-toolbar>
+<router-outlet></router-outlet>
