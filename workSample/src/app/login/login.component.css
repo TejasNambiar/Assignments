@@ -1,7 +1,10 @@
 
 mat-card{
-    width: 95%;
-    margin-left: 2%;
+    width: 60%;
+    height:50%;    
+    display: block;
+    margin-left:auto;
+    margin-right:auto;  
     margin-top: 10px;
     font-weight: 150;
     background-image: linear-gradient(to left, lightblue , #5D6C89);
@@ -14,11 +17,12 @@ mat-card-header{
 mat-card-header mat-card-title{
   font-weight: 150;
   font-size: 40px;
-  padding-bottom: 3%;
+  padding-bottom: 20%;
 }
 
 mat-card-content::content{
-    margin-left: 15%;
+    margin-left: 33%;
+    justify-content: center;
 }
 
 mat-card-actions #button{

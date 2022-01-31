@@ -7,44 +7,47 @@
                     (ngSubmit)="save()"
                     [formGroup]="loginForm">
 
-                    <div class="form-group row mb-2" id="form-field">
-                      <label class="col-md-3 col-form-label"
-                             for="userName">User Name</label>
-                      <div class="col-md-7">
-                        <input class="form-control"
-                               id="userName"
-                               type="text"
-                               placeholder="User Name (required)"
-                               formControlName="userName"
-                               size="6"
-                               [ngClass]="{'is-invalid': (loginForm.get('userName').touched || loginForm.get('userName').dirty) && !loginForm.get('userName').valid }" />
-                        <span class="invalid-feedback">
-                          <span *ngIf="loginForm.get('userName').errors?.required">
-                            Please enter your User name.
-                          </span>
-                          <span *ngIf="loginForm.get('userName').errors?.minlength">
-                            The user name must be longer than 3 characters.
-                          </span>
-                        </span>
-                    </div>
+                <div class="example-container">
+                    <mat-form-field appearance="fill">
+                        <mat-label 
+                            class="col-form-label"
+                            for="userName">User Name
+                        </mat-label>
+                        <input 
+                            matInput 
+                            id="userName"
+                            type="text"
+                            placeholder="User Name (required)" 
+                            size="6"
+                            formControlName="userName" required>
+                         <mat-error
+                            *ngIf="loginForm.get('userName').errors?.required"> 
+                            {{LOGINCONST.USERNAME_NULL}}
+                        </mat-error>
+                        <mat-error
+                            *ngIf="loginForm.get('userName').errors?.minlength">
+                            {{LOGINCONST.USERNAME_INVALID}}
+                        </mat-error>
+                    </mat-form-field>
                 </div>
-                
-                <div class="form-group row mb-2" id="form-field">
-                  <label class="col-md-3 col-form-label"
-                         for="passwordId">password</label>
-                  <div class="col-md-7">
-                    <input class="form-control"
-                           id="passwordId"
-                           type="password"
-                           placeholder="password (required)"
-                           formControlName="password"
-                           [ngClass]="{'is-invalid': (loginForm.get('password').touched || loginForm.get('password').dirty) && !loginForm.get('password').valid }" />
-                    <span class="invalid-feedback">
-                      <span *ngIf="loginForm.get('password').errors?.required">
-                        Please enter your password.
-                      </span>
-                    </span>
-                  </div>
+                <div class="example-container">
+                    <mat-form-field appearance="fill">
+                        <mat-label
+                            class="col-form-label"
+                            for="passwordId">Password
+                        </mat-label>
+                        <input 
+                            matInput 
+                            id="passwordId"
+                            type="password"
+                            size="6"
+                            placeholder="password (required)"
+                            formControlName="password" required>
+                        <mat-error
+                            *ngIf="loginForm.get('password').errors?.required"> 
+                            {{LOGINCONST.PASSWORD_NULL}}
+                        </mat-error>
+                    </mat-form-field>
                 </div>
             </form>
     </mat-card-content>
@@ -53,9 +56,10 @@
                 id="button"
                 class="btn btn-primary mr-3"
                 type="submit"
+                name="submit"
                 style="width:80px"
                 [title]="loginForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
-                [disabled]="!loginForm.valid">
+                [disabled]="loginForm.invalid">
               Submit
          </button>
     </mat-card-actions>

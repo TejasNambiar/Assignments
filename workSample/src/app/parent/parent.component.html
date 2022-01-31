@@ -1,0 +1,6 @@
+<p>parent works!</p>
+<ul>
+    <li *ngFor="let item of items">{{item}}</li>
+</ul>
+<app-child [parent]="data" (parentFunction)="parentFunction($event)" (newItemEvent)="addItem($event)"></app-child>
+<h1>{{childData}}</h1>

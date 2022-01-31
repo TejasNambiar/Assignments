@@ -1,0 +1,17 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthenticationService {
+
+  constructor() { }
+
+  authenticate(){
+    localStorage.setItem("user","Tejas");
+  }
+
+  checkAuthenticate(){
+    return (localStorage.getItem('user') === 'Tejas')
+  }
+}

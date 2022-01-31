@@ -1,14 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Names } from '../names_folder';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
+  templateUrl: './mat_login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   
   loginForm: any;
+  readonly LOGINCONST = Names
 
   constructor(private fb: FormBuilder) { }
 
