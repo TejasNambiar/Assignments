@@ -8,13 +8,10 @@ import { LoginAuthenticationService } from '../service/login-authentication.serv
 })
 export class HomepageComponent implements OnInit {
 
-  userAuthenticated !:  any
-
-  constructor(private service: LoginAuthenticationService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.userAuthenticated = this.service.currentUser()?.isLogged
-    console.log("window inside home:: "+this.userAuthenticated)
+    
   }
 
 }

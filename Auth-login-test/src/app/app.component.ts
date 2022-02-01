@@ -11,22 +11,24 @@ import { LoginAuthenticationService } from './service/login-authentication.servi
 export class AppComponent implements OnInit{
 
   userAuthenticated !:  any
-  valid : boolean =false
+  valid !: boolean
 
   constructor(private service: LoginAuthenticationService, private router: Router) { }
 
   ngOnInit(): void {
+    this.valid = false
     this.userAuthenticated = this.service.currentUser()
     if(this.userAuthenticated?.isLogged){
       this.valid = true
     }
-    console.log("window inside app:: "+this.userAuthenticated?.isLogged)
+    // console.log("window inside app:: "+this.userAuthenticated?.isLogged)
   }
 
   
   logout(){
       this.service.logUserOut()
-      this.valid = false
+      if(this.valid != false) 
+        this.valid = false
       this.router.navigate([""]).then(() => {window.location.reload()})
       
   }

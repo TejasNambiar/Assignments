@@ -1,35 +1,81 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { MaterialModule } from './material/material.module';
+import { LoginAuthenticationService } from './service/login-authentication.service';
 
 describe('AppComponent', () => {
+
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let authService: LoginAuthenticationService
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        MaterialModule
       ],
       declarations: [
         AppComponent
       ],
+      providers: [LoginAuthenticationService]
     }).compileComponents();
+  });
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    authService = TestBed.get(LoginAuthenticationService)
+    component = fixture.componentInstance;
+    fixture.detectChanges()
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    component = fixture.componentInstance;
+    expect(component).toBeTruthy();
   });
 
-  it(`should have as title 'Auth-login-test'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('Auth-login-test');
+  it(`should spy on Service currentUser method:: fails'`, () => {
+    const dummyReturn = {
+      fname: null,
+      lname: null,
+      isLogged: false
+    }
+
+    let currentUserSpy = spyOn(authService, 'currentUser').and.returnValue(dummyReturn)
+    component.ngOnInit()
+    fixture.whenStable().then(() => {
+      fixture.detectChanges()
+      let authenticated = component.userAuthenticated
+      expect(authenticated.isLogged).toBeFalsy()
+    })
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Auth-login-test app is running!');
+  it('should check valid:: default  and post validation', () => {
+    expect(component.valid).toBeFalsy()
+
+    const dummyReturn = {
+      fname: "test 1",
+      lname: "last 1",
+      isLogged: true
+    }
+
+    let currentUserSpy = spyOn(authService, 'currentUser').and.returnValue(dummyReturn)
+    component.ngOnInit()
+    fixture.whenStable().then(() => {
+      fixture.detectChanges()
+      let authenticated = component.userAuthenticated
+      expect(authenticated.isLogged).toBeTruthy()
+      expect(component.valid).toBeTruthy()
+    })
   });
+
+  // xit('should check logout function', fakeAsync(() => {
+
+  //   spyOn(authService,'logUserOut')
+  //   let logOutFunction = component.logout()
+  //   component.ngOnInit()
+  //   expect(authService.logUserOut).toHaveBeenCalled()
+  //   expect(component.valid).toBeFalsy() 
+
+  // }));
 });

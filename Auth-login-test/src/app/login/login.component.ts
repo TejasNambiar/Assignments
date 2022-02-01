@@ -12,14 +12,14 @@ import { LoginAuthenticationService } from '../service/login-authentication.serv
 export class LoginComponent implements OnInit {
 
   loginForm: any;
-  validate : boolean = false
+  validate !: boolean
   readonly LOGINCONST = CONST
 
   constructor(private fb: FormBuilder, private service:LoginAuthenticationService
     ,private router: Router) { }
 
   ngOnInit(): void {
-
+    this.validate = false
     this.loginForm = this.fb.group({
       userName: ['', [Validators.required, Validators.minLength(3), Validators.email]],
       password: ['',Validators.required],
@@ -27,13 +27,13 @@ export class LoginComponent implements OnInit {
 
   }
 
-  save() {
-    console.log(this.loginForm.form);
-    console.log('Saved: ' + JSON.stringify(this.loginForm.value));
-  } 
+  // save() {
+  //   console.log(this.loginForm.form);
+  //   console.log('Saved: ' + JSON.stringify(this.loginForm.value));
+  // } 
 
   validateLogin(){
-    console.log(this.loginForm.value)
+    // console.log(this.loginForm.value)
     let username = this.loginForm.value.userName
     let password = this.loginForm.value.password
     this.validate = this.service.validateUser(username,password)

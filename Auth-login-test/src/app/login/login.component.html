@@ -4,7 +4,6 @@
     </mat-card-header>
     <mat-card-content>
         <form novalidate
-                    (ngSubmit)="save()"
                     [formGroup]="loginForm">
 
                 <div class="example-container">
@@ -67,14 +66,5 @@
                 (click) = "validateLogin()"
                 >
               Submit
-         </button>
+        </button>
     </mat-card-actions>
-</mat-card>
-<mat-card class="mat-elevation-z9">
-    <mat-card-header>
-        <mat-card-title >Login</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <p>{{loginForm.value | json}}</p>
-    </mat-card-content>
-</mat-card>

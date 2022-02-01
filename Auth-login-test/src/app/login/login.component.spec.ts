@@ -5,10 +5,11 @@ import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { LoginComponent } from './login.component';
 
-fdescribe('LoginComponent', () => {
+describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
@@ -23,7 +24,8 @@ fdescribe('LoginComponent', () => {
         MatCardModule,
         MatFormFieldModule,
         MatInputModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        RouterTestingModule
       ]
     })
     .compileComponents();
@@ -77,7 +79,7 @@ fdescribe('LoginComponent', () => {
   });
 
 });
-fdescribe('Form Component', () =>{
+describe('Form Component', () =>{
 
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
@@ -88,7 +90,8 @@ fdescribe('Form Component', () =>{
         LoginComponent 
       ],
       imports: [
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        RouterTestingModule
       ]
     })
     .compileComponents();
