@@ -34,9 +34,9 @@ export class LoginAuthenticationService {
   currentUser(){
     localStorage.setItem('null',JSON.stringify({fname:null, lname:null, isLogged: false}))
     let localitems = window.localStorage.getItem('currentUser')
-    console.log("localitems: "+localitems)
+    // console.log("localitems: "+localitems)
     this.User = localitems !== null ? JSON.parse(localitems) : localStorage.getItem('null')
-    console.log(this.User)
+    // console.log(this.User)
     return this.User
   }
 

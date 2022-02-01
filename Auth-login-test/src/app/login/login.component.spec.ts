@@ -1,11 +1,14 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { route } from '../app-routing.module';
+import { LoginAuthenticationService } from '../service/login-authentication.service';
 
 import { LoginComponent } from './login.component';
 
@@ -83,6 +86,8 @@ describe('Form Component', () =>{
 
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+  let service: LoginAuthenticationService
+  let router: Router
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -91,7 +96,7 @@ describe('Form Component', () =>{
       ],
       imports: [
         ReactiveFormsModule,
-        RouterTestingModule
+        RouterTestingModule.withRoutes(route)
       ]
     })
     .compileComponents();
@@ -99,6 +104,8 @@ describe('Form Component', () =>{
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginComponent);
+    router = TestBed.get(Router)
+    service = TestBed.get(LoginAuthenticationService)
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -162,4 +169,21 @@ describe('Form Component', () =>{
 
     expect(component.loginForm.valid).toBeFalsy();
   });
+
+  it('should call validateLogin Method: validate should be false',fakeAsync(()=>{
+    component.validateLogin()
+    spyOn(service,'validateUser').withArgs("abc","def").and.returnValue(false)
+    // let navigateSpy = spyOn(router, 'navigate');
+    // expect(navigateSpy).toHaveBeenCalledWith(["/homepage"])
+    expect(component.validate).toBeFalsy()
+  }))
+
+  // it('should call validateLogin Method: validate should be true',fakeAsync(()=>{
+  //   component.validateLogin()
+  //   spyOn(service,'validateUser').withArgs("abc","def").and.callFake(() => {return true})
+  //   fixture.detectChanges()
+  //   // let navigateSpy = spyOn(router, 'navigate');
+  //   // expect(navigateSpy).toHaveBeenCalledWith(["/homepage"])
+  //   expect(component.validate).toBeTruthy()
+  // }))
 })

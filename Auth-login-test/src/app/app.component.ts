@@ -27,9 +27,8 @@ export class AppComponent implements OnInit{
   
   logout(){
       this.service.logUserOut()
-      if(this.valid != false) 
         this.valid = false
-      this.router.navigate([""]).then(() => {window.location.reload()})
+      this.router.navigate([""]).then(() => {window.location.assign("")})
       
   }
 }

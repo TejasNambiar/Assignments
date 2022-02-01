@@ -69,13 +69,16 @@ describe('AppComponent', () => {
     })
   });
 
-  // xit('should check logout function', fakeAsync(() => {
+  it('should check logout function', fakeAsync(() => {
+ 
+      spyOn(authService,'logUserOut')
+      component.logout()
+      component.ngOnInit()
+      spyOn(window.location, "assign").and.callFake(() => {
+        return 
+      })
+        expect(authService.logUserOut).toHaveBeenCalled()
+        expect(component.valid).toBeFalsy() 
 
-  //   spyOn(authService,'logUserOut')
-  //   let logOutFunction = component.logout()
-  //   component.ngOnInit()
-  //   expect(authService.logUserOut).toHaveBeenCalled()
-  //   expect(component.valid).toBeFalsy() 
-
-  // }));
+  }));
 });
