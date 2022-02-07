@@ -1,0 +1,19 @@
+<div class="right" *ngIf="readData">
+    <mat-list >
+        <div mat-subheader><h1 class="display-3">Data</h1></div>
+        <mat-list-item *ngFor="let tutorial of readData | async; let i = index">
+            <mat-icon mat-list-icon>folder</mat-icon>
+            <div mat-line><p class="lead">{{ tutorial.username }}</p></div>
+            <div mat-line><p class="lead">{{ tutorial.phone }}</p></div>
+            <div mat-line><p class="lead">{{ tutorial.email }}</p></div>
+            <button mat-button class="btn btn-danger" (click)="removeProduct(tutorial)">
+                <mat-icon>delete</mat-icon>
+                LESS
+            </button>
+        </mat-list-item>
+        <button id="removeAll" mat-button class="btn btn-danger" (click)="clearEntries()">
+            <mat-icon>delete</mat-icon>
+            REMOVE ALL
+        </button>
+    </mat-list>
+</div>

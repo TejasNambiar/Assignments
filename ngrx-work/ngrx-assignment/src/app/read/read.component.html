@@ -1,0 +1,18 @@
+<div class="right" *ngIf="readData">
+
+    <h3>Tutorials</h3>
+    <ul>
+      <li *ngFor="let tutorial of readData | async; let i = index">
+          {{i}}
+          <ul>
+            <li>{{ tutorial.username }}</li>
+            <li>{{ tutorial.phone }}</li>
+            <li>{{ tutorial.email }}</li>
+            <button mat-button class="action-button detail-button" (click)="removeProduct(tutorial)">LESS</button>
+          </ul>
+        <!-- <button class="action-button detail-button" (click)="removeProduct(tutorial)">LESS</button> -->
+      </li>
+    </ul>
+    <button mat-button class="clear-button action-button" (click)="clearEntries()">REMOVE ALL</button>
+  
+</div>

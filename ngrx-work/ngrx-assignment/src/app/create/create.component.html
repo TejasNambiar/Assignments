@@ -1,0 +1,32 @@
+<div class="example-container left">
+    <form novalidate [formGroup]="form">
+
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label class="col-form-label" for="username">User Name</mat-label>
+                <input matInput id="username" type="text" placeholder="User Name (required)" size="6" formControlName="username" required>
+                <mat-error *ngIf="form.get('username').errors?.required">LOGINCONST.USERNAME_NULL</mat-error>
+                <mat-error *ngIf="form.get('username').errors?.minlength">LOGINCONST.USERNAME_INVALID</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label class="col-form-label" for="email">Email</mat-label>
+                <input matInput id="email" type="text" placeholder="User Name (required)" size="6" formControlName="email" required>
+                <mat-error *ngIf="form.get('email').errors?.required">LOGINCONST.EMAIL_NULL</mat-error>
+                <mat-error *ngIf="form.get('email').errors?.email">LOGINCONST.EMAIL_INVALID</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field appearance="fill">
+                <mat-label class="col-form-label" for="phone">Phone</mat-label>
+                <input matInput id="phone" type="number" size="6" placeholder="phone (required)" formControlName="phone" required>
+                <mat-error *ngIf="form.get('phone').errors?.required">LOGINCONST.PHONE_NULL</mat-error>
+            </mat-form-field>
+        </div>
+        <button mat-raised-button id="button" class="btn btn-primary mr-3" (click) = "addData()"
+            type="submit" name="submit" style="width:80px" [disabled]="form.invalid">
+            Submit
+        </button>
+    </form>
+</div>
