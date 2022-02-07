@@ -1,5 +1,5 @@
-import { form } from "./entity/form";
+import { Form } from "./entity/form";
 
 export interface AppState{
-    readonly formEnteries: form[]
+    readonly formEnteries: Form[]
 }

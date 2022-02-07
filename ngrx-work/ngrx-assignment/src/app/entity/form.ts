@@ -1,4 +1,4 @@
-export interface form{
+export interface Form {
     username: string,
     email: string,
     phone: string

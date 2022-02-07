@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { ADD_DATA } from '../app-management/form.actions';
 import { AppState } from '../app.state';
-import { form } from '../entity/form';
+import { Form } from '../entity/form';
 
 @Component({
   selector: 'app-create',
@@ -26,7 +26,7 @@ export class CreateComponent implements OnInit {
 
   // reactive form create.component.html
   addData(){
-    let dto: form = this.form.value
+    let dto: Form = this.form.value
     console.log(JSON.stringify(dto)+", username:: "+dto.username)
     this.store.dispatch(ADD_DATA({
       username: dto.username,
